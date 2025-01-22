@@ -5,7 +5,7 @@
 ################################################################################
 
 GUPPYSCREEN_VERSION = origin/flashforge_ad5m 
-GUPPYSCREEN_SITE = "git@github.com:consp/guppyscreen.git"
+GUPPYSCREEN_SITE = "git@github.com:consp/guppyscreen-custom.git"
 GUPPYSCREEN_SITE_METHOD = git
 GUPPYSCREEN_GIT_SUBMODULES = yes
 GUPPYSCREEN_LICENSE = GPL-3.0+
@@ -27,7 +27,7 @@ endef
 # GUPPY_FF5M_SCREEN=1 $(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D) clean
 #
 define GUPPYSCREEN_INSTALL_TARGET_CMDS
-	$(INSTALL) -D -m 0755 $(@D)/build/bin/guppyscreen $(TARGET_DIR)/root/printer_software/guppyscreen/guppyscreen
+	$(INSTALL) -D -m 0755 $(@D)/build/bin/guppyscreen-custom $(TARGET_DIR)/root/printer_software/guppyscreen-custom/guppyscreen-custom
 endef
 
 $(eval $(generic-package))

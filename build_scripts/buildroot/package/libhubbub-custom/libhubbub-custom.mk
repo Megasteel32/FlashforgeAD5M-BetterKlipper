@@ -1,15 +1,15 @@
 ################################################################################
 #
-# libhubbub
+# libhubbub-custom
 #
 ################################################################################
 
-LIBHUBBUB_SITE = http://git.netsurf-browser.org/libhubbub.git
+LIBHUBBUB_SITE = http://git.netsurf-browser.org/libhubbub-custom.git
 LIBHUBBUB_SITE_METHOD = git
 LIBHUBBUB_VERSION = release/0.3.8
 LIBHUBBUB_INSTALL_STAGING = YES
 LIBHUBBUB_DEPENDENCIES = \
-	libparserutils host-netsurf-buildsystem
+	libparserutils host-netsurf-buildsystem-ad5m
 LIBHUBBUB_LICENSE = MIT
 LIBHUBBUB_LICENSE_FILES = README
 
@@ -24,7 +24,7 @@ endif
 
 LIBHUBBUB_MAKE_OPTS = \
     PREFIX=/usr \
-    NSSHARED=$(HOST_DIR)/share/netsurf-buildsystem
+    NSSHARED=$(HOST_DIR)/share/netsurf-buildsystem-ad5m
 
 # Use $(MAKE1) since parallel build fails
 define LIBHUBBUB_BUILD_CMDS

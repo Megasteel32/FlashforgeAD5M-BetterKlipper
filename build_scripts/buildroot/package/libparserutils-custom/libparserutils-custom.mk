@@ -1,15 +1,15 @@
 ################################################################################
 #
-# libparserutils
+# libparserutils-custom
 #
 ################################################################################
 
-LIBPARSERUTILS_SITE = http://git.netsurf-browser.org/libparserutils.git
+LIBPARSERUTILS_SITE = http://git.netsurf-browser.org/libparserutils-custom.git
 LIBPARSERUTILS_SITE_METHOD = git
 LIBPARSERUTILS_VERSION = release/0.2.5
 LIBPARSERUTILS_INSTALL_STAGING = YES
 LIBPARSERUTILS_DEPENDENCIES = \
-	host-netsurf-buildsystem
+	host-netsurf-buildsystem-ad5m
 LIBPARSERUTILS_LICENSE = MIT
 LIBPARSERUTILS_LICENSE_FILES = README
 
@@ -24,7 +24,7 @@ endif
 
 LIBPARSERUTILS_MAKE_OPTS = \
     PREFIX=/usr \
-    NSSHARED=$(HOST_DIR)/share/netsurf-buildsystem
+    NSSHARED=$(HOST_DIR)/share/netsurf-buildsystem-ad5m
 
 # Use $(MAKE1) since parallel build fails
 define LIBPARSERUTILS_BUILD_CMDS

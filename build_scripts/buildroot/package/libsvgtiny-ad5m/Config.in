@@ -1,7 +1,6 @@
 config BR2_PACKAGE_LIBSVGTINY
 	bool "libsvgtiny"
-		select BR2_PACKAGE_LIBDOM
-        select BR2_PACKAGE_LIBWAPCAPLET
+	select BR2_PACKAGE_LIBXML2
 	help
 	  Libsvgtiny is an implementation of SVG Tiny, written in C.
 	  It is currently in development for use with NetSurf and is

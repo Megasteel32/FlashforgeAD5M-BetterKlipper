@@ -6,14 +6,14 @@
 
 LIBSVGTINY_SITE = http://git.netsurf-browser.org/libsvgtiny.git
 LIBSVGTINY_SITE_METHOD = git
-LIBSVGTINY_VERSION = release/0.1.8
+LIBSVGTINY_VERSION = ea9d99fc8b231c22d06168135e181d61f4eb2f06
 LIBSVGTINY_INSTALL_STAGING = YES
 LIBSVGTINY_DEPENDENCIES = \
-	libdom libwapcaplet host-gperf host-pkgconf host-netsurf-buildsystem
+	libxml2 host-gperf host-pkgconf host-netsurf-buildsystem-ad5m
 LIBSVGTINY_LICENSE = MIT
 LIBSVGTINY_LICENSE_FILES = README
 
-# The build system cannot build both the shared and static
+# The libsvgtiny build system cannot build both the shared and static
 # libraries. So when the Buildroot configuration requests to build
 # both the shared and static variants, we build only the shared one.
 ifeq ($(BR2_SHARED_LIBS)$(BR2_SHARED_STATIC_LIBS),y)
@@ -22,24 +22,26 @@ else
 LIBSVGTINY_COMPONENT_TYPE = lib-static
 endif
 
-LIBSVGTINY_MAKE_OPTS = \
-    PREFIX=/usr \
-    NSSHARED=$(HOST_DIR)/share/netsurf-buildsystem
+define LIBSVGTINY_CONFIGURE_CMDS
+	ln -sf $(HOST_DIR)/share/netsurf-buildsystem-ad5m $(@D)/build
+endef
 
 # Use $(MAKE1) since parallel build fails
 define LIBSVGTINY_BUILD_CMDS
-	$(TARGET_CONFIGURE_OPTS) $(MAKE1) -C $(@D) $(LIBSVGTINY_MAKE_OPTS) \
+	$(TARGET_CONFIGURE_OPTS) $(MAKE1) -C $(@D) PREFIX=/usr \
 		COMPONENT_TYPE=$(LIBSVGTINY_COMPONENT_TYPE)
 endef
 
 define LIBSVGTINY_INSTALL_STAGING_CMDS
-	$(TARGET_CONFIGURE_OPTS) $(MAKE1) -C $(@D) $(LIBSVGTINY_MAKE_OPTS) \
-		DESTDIR=$(STAGING_DIR) COMPONENT_TYPE=$(LIBSVGTINY_COMPONENT_TYPE) install
+	$(TARGET_CONFIGURE_OPTS) \
+		$(MAKE1) -C $(@D) PREFIX=/usr DESTDIR=$(STAGING_DIR) \
+		COMPONENT_TYPE=$(LIBSVGTINY_COMPONENT_TYPE) install
 endef
 
 define LIBSVGTINY_INSTALL_TARGET_CMDS
-	$(TARGET_CONFIGURE_OPTS) $(MAKE1) -C $(@D) $(LIBSVGTINY_MAKE_OPTS) \
-		DESTDIR=$(TARGET_DIR) COMPONENT_TYPE=$(LIBSVGTINY_COMPONENT_TYPE) install
+	$(TARGET_CONFIGURE_OPTS) \
+		$(MAKE1) -C $(@D) PREFIX=/usr DESTDIR=$(TARGET_DIR) \
+		COMPONENT_TYPE=$(LIBSVGTINY_COMPONENT_TYPE) install
 endef
 
 $(eval $(generic-package))

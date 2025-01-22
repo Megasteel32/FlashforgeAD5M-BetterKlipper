@@ -1,15 +1,15 @@
 ################################################################################
 #
-# libdom
+# libdom-custom
 #
 ################################################################################
 
-LIBDOM_SITE = http://git.netsurf-browser.org/libdom.git
+LIBDOM_SITE = http://git.netsurf-browser.org/libdom-custom.git
 LIBDOM_SITE_METHOD = git
 LIBDOM_VERSION = release/0.4.2
 LIBDOM_INSTALL_STAGING = YES
 LIBDOM_DEPENDENCIES = \
-	libwapcaplet libhubbub libparserutils host-netsurf-buildsystem
+	libwapcaplet libhubbub libparserutils host-netsurf-buildsystem-ad5m
 LIBDOM_LICENSE = MIT
 LIBDOM_LICENSE_FILES = README
 
@@ -24,7 +24,7 @@ endif
 
 LIBDOM_MAKE_OPTS = \
     PREFIX=/usr \
-    NSSHARED=$(HOST_DIR)/share/netsurf-buildsystem
+    NSSHARED=$(HOST_DIR)/share/netsurf-buildsystem-ad5m
 
 # Use $(MAKE1) since parallel build fails
 define LIBDOM_BUILD_CMDS

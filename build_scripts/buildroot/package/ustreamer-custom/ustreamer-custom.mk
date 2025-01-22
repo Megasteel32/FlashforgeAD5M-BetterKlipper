@@ -1,13 +1,13 @@
 ################################################################################
 #
-# ustreamer
+# ustreamer-custom
 #
 ################################################################################
 
 USTREAMER_VERSION = 5.51
-USTREAMER_SITE = $(call github,pikvm,ustreamer,refs/tags)
+USTREAMER_SITE = $(call github,pikvm,ustreamer-custom,refs/tags)
 USTREAMER_SOURCE = v$(USTREAMER_VERSION).tar.gz
-USTREAMER_SUBDIR = ustreamer
+USTREAMER_SUBDIR = ustreamer-custom
 USTREAMER_LICENSE = GPL-3.0-or-later
 USTREAMER_LICENSE_FILES = LICENSE
 USTREAMER_DEPENDENCIES = jpeg libevent libbsd libgpiod
@@ -18,8 +18,8 @@ define USTREAMER_BUILD_CMDS
 endef
 
 define USTREAMER_INSTALL_TARGET_CMDS
-	$(INSTALL) -D -m 0755 $(@D)/ustreamer $(TARGET_DIR)/usr/bin/ustreamer
-	$(INSTALL) -D -m 0755 $(@D)/ustreamer-dump $(TARGET_DIR)/usr/bin/ustreamer-dump
+	$(INSTALL) -D -m 0755 $(@D)/ustreamer-custom $(TARGET_DIR)/usr/bin/ustreamer-custom
+	$(INSTALL) -D -m 0755 $(@D)/ustreamer-custom-dump $(TARGET_DIR)/usr/bin/ustreamer-custom-dump
 endef
 
 $(eval $(generic-package))

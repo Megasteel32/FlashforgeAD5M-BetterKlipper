@@ -4,12 +4,12 @@
 #
 ################################################################################
 
-LIBWAPCAPLET_SITE = http://git.netsurf-browser.org/libwapcaplet.git
+LIBWAPCAPLET_SITE = http://git.netsurf-browser.org/libwapcaplet-custom.git
 LIBWAPCAPLET_SITE_METHOD = git
 LIBWAPCAPLET_VERSION = release/0.4.3
 LIBWAPCAPLET_INSTALL_STAGING = YES
 LIBWAPCAPLET_DEPENDENCIES = \
-	host-netsurf-buildsystem
+	host-netsurf-buildsystem-ad5m
 LIBWAPCAPLET_LICENSE = MIT
 LIBWAPCAPLET_LICENSE_FILES = README
 
@@ -24,7 +24,7 @@ endif
 
 LIBWAPCAPLET_MAKE_OPTS = \
     PREFIX=/usr \
-    NSSHARED=$(HOST_DIR)/share/netsurf-buildsystem
+    NSSHARED=$(HOST_DIR)/share/netsurf-buildsystem-ad5m
 
 # Use $(MAKE1) since parallel build fails
 define LIBWAPCAPLET_BUILD_CMDS
