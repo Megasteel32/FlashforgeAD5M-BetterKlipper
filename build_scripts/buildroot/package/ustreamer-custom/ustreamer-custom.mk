@@ -5,8 +5,8 @@
 ################################################################################
 
 USTREAMER_VERSION = 5.51
-USTREAMER_SITE = $(call github,pikvm,ustreamer-custom,refs/tags)
-USTREAMER_SOURCE = v$(USTREAMER_VERSION).tar.gz
+USTREAMER_SITE = https://sources.buildroot.net/ustreamer
+USTREAMER_SOURCE = ustreamer-$(USTREAMER_VERSION).tar.gz
 USTREAMER_SUBDIR = ustreamer-custom
 USTREAMER_LICENSE = GPL-3.0-or-later
 USTREAMER_LICENSE_FILES = LICENSE
