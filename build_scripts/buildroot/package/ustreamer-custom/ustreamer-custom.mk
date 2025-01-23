@@ -18,8 +18,8 @@ define USTREAMER_BUILD_CMDS
 endef
 
 define USTREAMER_INSTALL_TARGET_CMDS
-	$(INSTALL) -D -m 0755 $(@D)/ustreamer-custom $(TARGET_DIR)/usr/bin/ustreamer-custom
-	$(INSTALL) -D -m 0755 $(@D)/ustreamer-custom-dump $(TARGET_DIR)/usr/bin/ustreamer-custom-dump
+    $(INSTALL) -D -m 0755 $(@D)/src/ustreamer.bin $(TARGET_DIR)/usr/bin/ustreamer
+    $(INSTALL) -D -m 0755 $(@D)/src/ustreamer-dump.bin $(TARGET_DIR)/usr/bin/ustreamer-dump
 endef
 
 $(eval $(generic-package))
